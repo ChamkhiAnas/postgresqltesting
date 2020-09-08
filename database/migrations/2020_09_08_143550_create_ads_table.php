@@ -15,6 +15,11 @@ class CreateAdsTable extends Migration
     {
         Schema::create('ads', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('client_id');
+            $table->foreign('client_id')->references('id')->on('clients');
+            $table->text('name');
+            $table->text('addresse');
+            $table->json('annoncedetail');
             $table->timestamps();
         });
     }

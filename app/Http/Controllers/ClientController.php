@@ -14,7 +14,8 @@ class ClientController extends Controller
      */
     public function index()
     {
-        //
+        $clients = Client::all();
+        return $clients;
     }
 
     /**
@@ -35,7 +36,14 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $client=new client();
+        $client->name=$request->input('name');
+        $client->addresse=$request->input('addresse');
+        $client->email=$request->input('email');
+        $client->password=$request->input('password');
+        $client->tele=$request->input('tele');
+        $client->save();
+        return  $client;
     }
 
     /**

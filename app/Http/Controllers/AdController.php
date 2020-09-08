@@ -15,6 +15,8 @@ class AdController extends Controller
     public function index()
     {
         //
+        $Ad = Ad::all();
+        return $Ad;
     }
 
     /**
@@ -35,7 +37,13 @@ class AdController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $Ad=new Ad();
+        $Ad->client_id=$request->input('client_id');
+        $Ad->name=$request->input('name');
+        $Ad->addresse=$request->input('addresse');
+        $Ad->annoncedetail=$request->input('annoncedetail');
+        $Ad->save();
+        return  Ad::all();
     }
 
     /**
